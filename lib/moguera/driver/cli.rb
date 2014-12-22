@@ -26,7 +26,7 @@ module Moguera::Driver
 
     %w(generator info update destroy).each do |cmd|
       desc "#{cmd} [COMMAND]", "commands for #{cmd}"
-      subcommand cmd, Mogera::Driver.const_get(cmd.capitalize)
+      subcommand cmd, Moguera::Driver.const_get(cmd.capitalize)
     end
 
     private
