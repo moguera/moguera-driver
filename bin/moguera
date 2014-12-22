@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+$:.unshift File.join(File.dirname(__FILE__), *%w{ .. lib })
+
+require 'thor'
+require 'thor/group'
+
+module Moguera
+  module Driver
+    autoload :CLI,          'moguera/driver/cli'
+    autoload :ARGVScrubber, 'moguera/driver/cli'
+    autoload :Generator,    'moguera/driver/cli/generator'
+    autoload :Info,         'moguera/driver/cli/info'
+    autoload :Update,       'moguera/driver/cli/update'
+    autoload :Destroy,      'moguera/driver/cli/destroy'
+  end
+end
+
+require 'moguera/driver'
+#args = Mogera::Driver::ARGVScrubber.new(ARGV).prepare!
+Moguera::Driver::CLI.start ARGV
